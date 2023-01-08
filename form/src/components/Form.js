@@ -87,6 +87,7 @@ const Form = () => {
             placeholder="*****"
             value={formValues.password}
             required
+            minLength={5}
           />
         </div>
         <div className="form-input">
