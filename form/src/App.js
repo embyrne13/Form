@@ -4,12 +4,13 @@ import { useState } from 'react'
 import swal from 'sweetalert'
 
 function App() {
+  const [occupation, setOccupation] = useState('')
+  const [state, setState] = useState('')
+
   const [formValues, setFormValues] = useState({
     name: '',
     email: '',
-    password: '',
-    occupation: '',
-    state: ''
+    password: ''
   })
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
@@ -20,10 +21,10 @@ function App() {
     setFormValues({
       name: '',
       email: '',
-      password: '',
-      occupation: '',
-      state: ''
+      password: ''
     })
+    setOccupation('')
+    setState('')
     swal('Form completed', 'Click OK to return!', 'success')
   }
   return (
@@ -62,21 +63,24 @@ function App() {
         </div>
         <div className="form-input">
           <label>occupation: </label>
-          <input
-            onChange={handleChange}
-            name="occupation"
-            placeholder="occupation"
-            value={formValues.occupation}
-          />
+          <select
+            value={occupation}
+            onChange={(e) => setOccupation(e.target.value)}
+          >
+            <option value="Select">Select</option>
+            <option value="teacher">teacher</option>
+            <option value="doctor">doctor</option>
+            <option value="SE">SE</option>
+          </select>
         </div>
         <div className="form-input">
           <label>state: </label>
-          <input
-            onChange={handleChange}
-            name="state"
-            placeholder="state"
-            value={formValues.state}
-          />
+          <select value={state} onChange={(e) => setState(e.target.value)}>
+            <option value="Select">Select</option>
+            <option value="NY">New York</option>
+            <option value="Colorado">Colorado</option>
+            <option value="Vermont">Vermont</option>
+          </select>
         </div>
         <div className="form button">
           <button type="submit">Submit form</button>
