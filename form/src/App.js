@@ -12,6 +12,7 @@ function App() {
     email: '',
     password: ''
   })
+
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
     e.preventDefault()
@@ -39,6 +40,7 @@ function App() {
             type="text"
             placeholder="Full Name"
             value={formValues.name}
+            required
           />
         </div>
         <div className="form-input">
@@ -49,6 +51,7 @@ function App() {
             type="email"
             placeholder="email"
             value={formValues.email}
+            required
           />
         </div>
         <div className="form-input">
@@ -59,6 +62,7 @@ function App() {
             name="password"
             placeholder="*****"
             value={formValues.password}
+            required
           />
         </div>
         <div className="form-input">
