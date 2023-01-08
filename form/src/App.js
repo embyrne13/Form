@@ -24,7 +24,6 @@ function App() {
       occupation: '',
       state: ''
     })
-
     swal('Form completed', 'Click OK to return!', 'success')
   }
   return (
@@ -58,7 +57,7 @@ function App() {
             type="password"
             name="password"
             placeholder="*****"
-            value={formValues.email}
+            value={formValues.password}
           />
         </div>
         <div className="form-input">
