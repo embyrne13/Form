@@ -1,6 +1,7 @@
 import './App.css'
 import React from 'react'
 import { useState } from 'react'
+import swal from 'sweetalert'
 
 function App() {
   const [formValues, setFormValues] = useState({
@@ -23,6 +24,8 @@ function App() {
       occupation: '',
       state: ''
     })
+
+    swal('Form completed', 'Click OK to return!', 'success')
   }
   return (
     <div className="App">
