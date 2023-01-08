@@ -32,13 +32,14 @@ const Form = () => {
 
     const dataParams = {
       ...formValues,
-      occupations: occupationVal
+      occupation: occupationVal,
+      state: stateVal
     }
-    console.log('dataParams', formValues)
-    // await axios.post(
-    //   `https://frontend-take-home.fetchrewards.com/form`,
-    //   dataParams
-    // )
+    console.log(dataParams)
+    await axios.post(
+      `https://frontend-take-home.fetchrewards.com/form`,
+      dataParams
+    )
   }
 
   const getOccupation = async () => {
