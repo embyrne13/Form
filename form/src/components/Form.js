@@ -55,7 +55,7 @@ const Form = () => {
   }, [])
 
   return (
-    <div className="App">
+    <div className="form">
       <form onSubmit={handleSubmit}>
         <div className="form-input">
           <label>name: </label>
