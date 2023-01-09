@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { useState } from 'react'
+import React from 'react'
+import { useState, useEffect } from 'react'
 import swal from 'sweetalert'
 import axios from 'axios'
 const Form = () => {
@@ -27,33 +27,28 @@ const Form = () => {
     })
     setOccupationVal('')
     setStateVal('')
-    console.log()
     swal('Form completed', 'Click OK to return!', 'success')
-
     const dataParams = {
       ...formValues,
       occupation: occupationVal,
       state: stateVal
     }
-    console.log(dataParams)
     await axios.post(
       `https://frontend-take-home.fetchrewards.com/form`,
       dataParams
     )
   }
 
-  const getOccupation = async () => {
+  const getInfo = async () => {
     const res = await axios.get(
       `https://frontend-take-home.fetchrewards.com/form`
     )
     setOccupation(res.data.occupations)
     setState(res.data.states)
   }
-
   useEffect(() => {
-    getOccupation()
+    getInfo()
   }, [])
-
   return (
     <div className="form">
       <form onSubmit={handleSubmit}>
@@ -100,8 +95,8 @@ const Form = () => {
           >
             <option value=""></option>
             {occupation &&
-              occupation.map((res, index) => {
-                return <option value={{ res }}>{res}</option>
+              occupation.map((res) => {
+                return <option value={res}>{res}</option>
               })}
           </select>
         </div>
@@ -114,7 +109,7 @@ const Form = () => {
           >
             <option value=""></option>
             {state &&
-              state.map((res, index) => {
+              state.map((res) => {
                 return <option value={res.name}>{res.name}</option>
               })}
           </select>
